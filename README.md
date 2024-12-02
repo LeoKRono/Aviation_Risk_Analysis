@@ -1,65 +1,84 @@
-# Aircraft Risk Analysis
+# Aviation Risk Analysis Project
 
-## Overview
-This project analyzes aviation accident data to identify airplanes with the lowest risk for a company planning to enter the aviation industry. The analysis is conducted using a dataset sourced from Kaggle, which contains detailed records of airplane accidents, including accident frequency, severity, and contributing factors.
+## Project Overview
 
-## Table of Contents
-- [Business Understanding](#business-understanding)
-- [Data Understanding](#data-understanding)
-- [Data Preparation](#data-preparation)
-- [Data Analysis](#data-analysis)
-- [Conclusion](#conclusion)
-- [Recommendations](#recommendations)
+This project aims to analyze aviation accident data to identify aircraft with the lowest risk profiles. The analysis focuses on factors such as accident frequency, severity, and related variables to provide insights into which aircraft present the least safety, financial, and operational risks. The findings will guide decision-making in selecting suitable airplanes for acquisition and operation.
 
-## Business Understanding
-The company intends to diversify its assets by purchasing and operating airplanes for commercial and private enterprises. The objective is to minimize safety and financial liabilities by identifying the safest and most reliable airplane models. 
+### Objectives
 
-### Goals
-1. Identify low-risk airplane models.
-2. Evaluate the severity and frequency of accidents.
-3. Assess factors contributing to accidents.
-4. Provide recommendations for selecting the best airplanes based on data analysis.
+1. Identify airplane models with minimal risk profiles.
+2. Analyze the severity and frequency of aviation accidents.
+3. Examine factors contributing to these accidents.
+4. Provide data-driven recommendations for selecting the safest airplane models.
 
-## Data Understanding
-The dataset used for this analysis is the [Aviation Accident Database](https://www.kaggle.com/datasets/khsamaha/aviation-accident-database-synopses) obtained from Kaggle, which includes:
+## Data Source
+
+The aviation accident dataset is sourced from Kaggle and originally obtained from the National Transportation Safety Board (NTSB). It contains comprehensive records of airplane accidents, including details such as:
+
 - Accident Number
-- Event Date
-- Location
-- Make and Model of the Aircraft
-- Severity of Injuries
+- Date and Location of the Accident
+- Aircraft Make and Model
+- Injury Severity
 - Weather Conditions
-- Phase of Flight
-- Other relevant factors
+- Flight Phase
 
-## Data Preparation
-The data preparation process includes:
-- Cleaning column names for easier access.
-- Checking for and removing duplicate entries.
-- Handling missing values by dropping or filling with appropriate substitutes.
-- Standardizing data representations.
+### Dataset Structure
+
+The dataset consists of **90,348 entries** and **31 columns**. Below are some key columns in the dataset:
+
+- `event_id`: Unique identifier for the event
+- `investigation_type`: Type of investigation (e.g., accident)
+- `accident_number`: Unique identifier for the accident
+- `event_date`: Date of the accident
+- `location`: Location of the accident
+- `country`: Country where the accident occurred
+- `make`: Aircraft manufacturer
+- `model`: Aircraft model
+- `injury_severity`: Severity of injuries (e.g., fatal, serious, minor)
+- `total_fatal_injuries`: Total number of fatal injuries
+- `total_serious_injuries`: Total number of serious injuries
+- `total_minor_injuries`: Total number of minor injuries
+- `total_uninjured`: Total number of uninjured passengers
+- `weather_condition`: Weather conditions at the time of the accident
+- `broad_phase_of_flight`: Phase of flight during the accident
+
+### Data Cleaning and Preparation
+
+The following data cleaning steps were performed:
+
+1. Removed duplicate entries based on the `accident_number` column.
+2. Dropped columns with more than 35% missing values.
+3. Dropped irrelevant columns for analysis.
+4. Handled missing values by dropping rows or filling with 'Unknown' where appropriate.
+5. Standardized representations of missing data.
+6. Created a new column for the year of the accident for future analysis.
 
 ## Data Analysis
+
 The analysis includes:
+
 - Trend analysis of injuries and uninjured passengers over time.
-- Evaluating injuries by plane model, make, amateur-built status, engine type, and number of engines.
-- Correlation analysis to understand the relationship between the number of engines and injuries.
+- Grouping data by aircraft model and make to evaluate total injuries.
+- Visualization of trends and injury statistics using bar charts and line plots.
+
+## Results
+
+- Trends indicate a general decrease in the severity and frequency of injuries over the years, suggesting improvements in aviation safety standards.
+- Specific aircraft models and makes are identified for their injury statistics, providing insights into which aircraft may be safer for operation.
+
+## Usage
+
+The cleaned dataset is saved as `cleaned_aviation_data.csv` and can be used for further analysis or modeling.
 
 ## Conclusion
-Accidents are inevitable in aviation, but certain factors such as make, model, and engine type can influence the likelihood of injuries. The analysis indicates that the number of engines does not correlate with the number of injuries.
 
-## Recommendations
-Based on the findings, the following recommendations are made for the company:
-- **Model of Aircraft**: Consider model 737 due to its high number of uninjured passengers.
-- **Make of Aircraft**: Focus on Boeing for its safety record.
-- **Type of Aircraft**: Prefer professionally built planes over amateur-built ones.
-- **Engine Type**: Turbo tan engines show favorable outcomes in terms of uninjured passengers.
+This project provides a comprehensive analysis of aviation accident data, offering valuable insights into aircraft safety. The findings can assist stakeholders in making informed decisions regarding aircraft acquisitions and operations.
 
-## Installation
-To run this notebook, ensure you have the following installed:
-- Python 3.x
-- Jupyter Notebook
-- Required libraries: pandas, numpy, matplotlib, seaborn
+## License
 
-You can install the required libraries using pip:
-```bash
-pip install pandas numpy matplotlib seaborn
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Kaggle for providing the aviation accident dataset.
+- National Transportation Safety Board for the original data source.
